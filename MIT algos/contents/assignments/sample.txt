@@ -1,0 +1,4 @@
+39
+C is a relatively "low level" language.
+36
+Java is an object-oriented language.
