@@ -1,0 +1,9 @@
+                                Characteristics Of Negative Capacitance Ferroelectric Field Eeffect in MOSFET
+
+
+Abstract:The idea of imposing negatice capacitance field effect transistor on a structre of a mosfet based device has been introduced to get better threshold switiching voltage. This ultimetaly hepls us to achive devices using low power .
+The threshold voltage is the voltage which causes the mosfet to be able to operate on linear and saturation regions.
+Another benifit of negative capacitance field effect transistor is in the reduction of amount of heat generation . While the fabrication of the devices NC (Negative Capacitance ) based architecture leads to less heat generation .Basic source of heat generation is due to electron and holes carrier of the semiconductor which lead to enormonous amount of heat from every transistor when combined for processing in a device like RAMs. Thus making gate voltage  a limitating value and by using negative capacitance we can lower the gate voltage and reduce the heart generation.
+If we compare models for NCFET with single or double gate MOSFET a clear differnce can be represented using drain current vs gate source characteristics.
+Simple applications of MOSFETs like invertores where slight improvment in switching characteristics of any transistor plays an crucial role negative capacitance based technology must be implemented and MOSFET ( Metal Oxide Semiconductor Field Effect Transistor )should be replaced with NC-MOSFET ( Negative Capacitance Metal Oxide Semiconductor Field Effect Transistor ) .
+

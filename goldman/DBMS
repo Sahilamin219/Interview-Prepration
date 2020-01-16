@@ -1,0 +1,58 @@
+What is database or database management systems (DBMS)?
+· What is SQL?
+· What’s difference between DBMS and RDBMS?
+· What are CODD rules?
+· What are E-R diagrams?
+· How many types of relationship exist in database designing? What is normalization? What are different type of normalization?
+· What is denormalization?
+· Can you explain Fourth Normal Form?
+· Can you explain Fifth Normal Form?
+· What’s the difference between Fourth and Fifth normal form?
+· Have you heard about sixth normal form?
+· What are DML and DDL statements?
+· How do we select distinct values from a table?
+· What is like operator for and what are wild cards?
+· Can you explain Insert, Update and Delete query?
+· What is order by clause?
+· What is the SQL In clause?
+· Can you explain the between clause?
+· I have an employee salary table how do we find the second highest from it?
+· What are different types of joins in SQL?
+· What is “CROSS JOIN”?
+· You want to select the first record in a given set of rows?
+· What is the default “SORT” order for a SQL?
+· What is a self-join?
+· What’s the difference between DELETE and TRUNCATE?
+· .What are Wildcard operators?
+· Twist: - What is like clause in SQL?
+· What’s the difference between “UNION” and “UNION ALL”?
+· What are cursors and what are the situations you will use them?
+· What are the steps to create a cursor?
+· What is “Group by” clause?
+· What is the difference between “HAVING” and “WHERE” clause?
+· What is a Sub-Query?
+· What are Aggregate and Scalar Functions?
+· Can you explain the SELECT INTO Statement?
+· What is a View?
+· What is “Correlated Sub queries”?
+· What is SQl injection?
+· What is “Data Warehousing”?
+· What are Data Marts?
+· What are Fact tables and Dimension Tables?
+· What is Dimensional Modeling?
+· What is Star Schema Design?
+· What is Snow Flake Schema design in database?
+· What’s the difference between Star and Snow flake schema?
+· What is ETL process in Data warehousing?
+· What are the different stages in “Data warehousing”?
+· What is “Data mining”?
+· Compare “Data mining” and “Data Warehousing”?
+· What are indexes?
+· What are B-Trees?
+· I have a table which has lot of inserts, is it a good database design to create
+indexes on that table?
+· Insert’s are slower on tables which have indexes, justify it?
+· Why do page splitting happen?
+· What are “Table Scan’s” and “Index Scan’s”?
+· What are the two types of indexes and explain them in detail?
+· What’s the difference between clustered and non-clustered indexes?

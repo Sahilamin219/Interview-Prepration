@@ -1,0 +1,101 @@
+Pointer to Array
+
+As studied above, we can use a pointer to point to an array, and then we can use that pointer to access the array elements. Lets have an example,
+
+#include <stdio.h>
+
+int main()
+{
+    int i;
+    int a[5] = {1, 2, 3, 4, 5};
+    int *p = a;     // same as int*p = &a[0]
+    for (i = 0; i < 5; i++)
+    {
+        printf("%d", *p);
+        p++;
+    }
+    
+    return 0;
+}
+
+In the above program, the pointer *p will print all the values stored in the array one by one. We can also use the Base address (a in above case) to act as a pointer and print all the values.
+
+Using Array name as pointer in C
+
+The generalized form for using pointer with an array,
+
+*(a+i)
+
+is same as:
+
+a[i]
+
+Pointer to Multidimensional Array
+
+A multidimensional array is of form, a[i][j]. Lets see how we can make a pointer point to such an array. As we know now, name of the array gives its base address. In a[i][j], a will give the base address of this array, even a + 0 + 0 will also give the base address, that is the address of a[0][0] element.
+
+Here is the generalized form for using pointer with multidimensional arrays.
+
+*(*(a + i) + j)
+
+which is same as,
+
+a[i][j]
+
+Pointer and Character strings
+
+Pointer can also be used to create strings. Pointer variables of char type are treated as string.
+
+char *str = "Hello";
+
+The above code creates a string and stores its address in the pointer variable str. The pointer str now points to the first character of the string "Hello". Another important thing to note here is that the string created using char pointer can be assigned a value at runtime.
+
+char *str;
+str = "hello";      //this is Legal
+
+The content of the string can be printed using printf() and puts().
+
+printf("%s", str);
+puts(str);
+
+Notice that str is pointer to the string, it is also name of the string. Therefore we do not need to use indirection operator *.
+Array of Pointers
+
+We can also have array of pointers. Pointers are very helpful in handling character array with rows of varying length.
+
+char *name[3] = { 
+    "Adam",
+    "chris",
+    "Deniel"
+};
+//Now lets see same array without using pointer
+char name[3][20] = { 
+    "Adam",
+    "chris",
+    "Deniel"
+};
+
+Pointer with character array in c
+
+In the second approach memory wastage is more, hence it is prefered to use pointer in such cases.
+
+When we say memory wastage, it doesn't means that the strings will start occupying less space, no, characters will take the same space, but when we define array of characters, a contiguos memory space is located equal to the maximum size of the array, which is a wastage, which can be avoided if we use pointers instead.
+
+
+What Actually this line of code `ptr=(char *)&a;` does?
+I have the code :
+#include<stdio.h>
+void main(){
+   int i;
+   float a=5.2;
+   char *ptr;
+   ptr=(char *)&a;
+   for(i=0;i<=3;i++)
+      printf("%d ",*ptr++);
+}
+I got the output as 102 102 -90 64. I couldn't predict how it came, I get confused with this line ptr=(char *)&a;. Can anyone explain me what it does? And as like other variables the code *ptr++ increments? Or there is any other rule for pointers with this case
+This is called a cast. In C, a cast lets you convert or reinterpret a value from one type to another. When you take the address of the float, you get a float*; casting that to a char* gives you a pointer referring to the same location in memory, but pretending that what lives there is char data rather than float data.
+The line ptr=(char *)&a; casts the address of the float variable to a pointer of type char. Thus you are now interpreting the 4 bytes of which the float consists of as single bytes, which values you print with your for loop.
+The statement *ptr++ post-increments the pointer after reading its value, which means, you read the value pointed to (the single bytes of the float) and then advance the pointer by the offset of one byte.
+
+

@@ -1,0 +1,508 @@
+int *p;
+p = arr;  
+// or, 
+p = &arr[0];    //both the statements are equivalent.
+cout<<fixed<<d<<endl;
+cout.precision(9);
+<link href="https://fonts.googleapis.com/css?family=Bad Script&display=swap" rel="stylesheet"> 
+Q)how to take input for an array in python ?
+Ans)
+>>
+    n = int(input())
+    arr = []
+    for _ in range(n):
+        arr.append(int(input())   
+>> 
+    x = [int(i) for i in input().split()]
+    # enter numbers with spaces 
+    # Ex: 1 2 3 4 5 
+    # x = [1,2,3,4,5]
+>>
+arr = list(map(int, input().split()))
+>>
+arr = [ int(input()) for i in range(n)]
+>>
+	try:
+            check = raw_input ("would you like to continue?: ")
+        except EOFError:
+            print ("Error: EOF or empty input!")
+            check = ""
+        print check
+
+In C++, when an integer value is compared with an unsigned it, the int is promoted to unsigned. Negative numbers are stored in 2’s complement form and unsigned value of the 2’s complement form is much higher than the sizeof int.
+There are three indicators are available in C++. They are Error indicator, End-Of-File indicator and Position indicator.
+/*largest prime factor
+const long numm = 600851475143;
+long largestFact = 0;
+for (long i = 2; i < numm; i++) {
+    if (numm % i == 0) { // It is a divisor
+        bool isPrime = true;
+        for (long j = 2; j < i; j++) {
+            if (i % j == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            largestFact = i;
+        }
+    }
+}
+/*substring
+def failure_function(p):
+   l=len(p)
+   f=[0]*l
+   j=0 
+   for i in range(1,l):
+      while j>=0 and p[j]!=p[i]:
+         if j-1>=0: j=f[j-1]
+         else: j=-1 
+      j+=1
+      f[i]=j
+   return f
+
+def find_occurrences(t,p):
+   f=failure_function(p)
+   lt,lp=len(t),len(p)
+   j=0
+   for i in range(lt):
+      while j>=0 and t[i]!=p[j]:
+         if j-1>=0: j=f[j-1]
+         else: j=-1
+      j+=1  
+      if j==lp:
+         j=f[lp-1]
+         print i-lp+1
+
+** LINKED LIST **
+#include <iostream>
+using namespace std;
+struct Node{
+    int data;
+    int Node* next;
+};
+typedef struct Node *node;
+node head;
+createnode(){
+    node temp;
+    node* temp = new node();
+    temp->next = NULL;
+    return temp;
+};
+addnode(int value){
+  node temp,p;
+  temp = createnode();
+  temp->data = value;
+  if(head == NULL){
+      head = temp;
+  }
+  else{
+      p = head;
+      while(p->next != NULL){
+          p = p->next;
+      }
+      p->next = temp;
+  }
+  return head;
+};
+int main() {
+    createnode();
+    addnode(1);
+    addnode(2);
+    addnode(3);
+	return 0;
+}
+
+iterating over a string :-
+void print(const string& infix)
+{
+  for (auto c = infix.begin(); c!=infix.end(); ++c)
+  {
+    std::cout << *c << "\n";
+  }
+  std::cout << std::endl;
+}
+c_str returms a pointer to an array tha contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.
+this array includes the same sequence of characters that make up the vallues of the string object plus an additional terminating null character('\0') at the end.
+// A C/C++ program for splitting a string 
+// using strtok() 
+#include <stdio.h> 
+#include <string.h> 
+
+int main() 
+{ 
+	char str[] = "Geeks-for-Geeks"; 
+
+	// Returns first token 
+	char* token = strtok(str, "-"); 
+
+	// Keep printing tokens while one of the 
+	// delimiters present in str[]. 
+	while (token != NULL) { 
+		printf("%s\n", token); 
+		token = strtok(NULL, "-"); 
+	} 
+
+	return 0; 
+} 
+Output:
+Geeks
+for
+Geeks
+strtok()
+// Splits str[] according to given delimiters.
+// and returns next token. It needs to be called
+// in a loop to get all tokens. It returns NULL
+// when there are no more tokens.
+char * strtok(char str[], const char *delims);
+
+parenthisis checker gfg 
+#include <iostream> 
+#include <string> 
+#include <bits/stdc++.h>
+#include <algorithm> 
+#include <iterator> 
+
+using namespace std;
+
+int main()
+{
+    int t;cin>>t;
+    while(t--){
+        int a=0,b=0,c=0,d=0,e=0,f=0;
+        // assigning value to string s 
+        //getline(cin,str);
+        char str[100];
+        int n = str.length(); 
+        cin.get(str, 100);
+        // declaring character array 
+        char char_array[n + 1]; 
+        // copying the contents of the string to char array 
+        strcpy(char_array, str.c_str()); 
+        for (int i = 0; i < n; i++){
+            if(char_array[i]=="("){
+                cout << char_array[i]; 
+            }
+            if(char_array[i]=="["){
+                a++;
+            }
+            if(char_array[i]=="]"){
+                b++;
+            }
+            if(char_array[i]=="{"){
+                c++;
+            }
+            if(char_array=="}"){
+                d++;
+            }
+            if(char_array=="("){
+                e++;
+            }
+            if(char_array==")"){
+                f++;
+            }
+            if(a==b && c==d && e==f){
+                cout<<"balanced"<<endl;
+            }
+            else{
+                cout<<"not balanced"<<endl;
+            }
+        }
+    }
+    return 0;
+}
+
+oneusefullcode
+// C++ program to demonstrate vector of pairs 
+#include<bits/stdc++.h> 
+using namespace std; 
+
+int main() 
+{ 
+	//declaring vector of pairs 
+	vector< pair <int,int> > vect; 
+
+	// initialising 1st and 2nd element of 
+	// pairs with array values 
+	int arr[] = {10, 20, 5, 40 }; 
+	int arr1[] = {30, 60, 20, 50}; 
+	int n = sizeof(arr)/sizeof(arr[0]); 
+
+	// Entering values in vector of pairs 
+	for (int i=0; i<n; i++) 
+		vect.push_back( make_pair(arr[i],arr1[i]) ); 
+
+	// Printing the vector 
+	for (int i=0; i<n; i++) 
+	{ 
+		// "first" and "second" are used to access 
+		// 1st and 2nd element of pair respectively 
+		cout << vect[i].first << " "
+			<< vect[i].second << endl; 
+	} 
+
+	return 0; 
+} 
+--------------------last----------------code------------------------ever-----------------------------
+6-12-2019
+codechef plus minus
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+int main() {
+  ios_base::sync_with_stdio(false); 
+  cin.tie(NULL);    
+  int t;
+  cin>>t;
+  while(t--){
+      int r1=-1,r2=-1;
+      int pair=0;
+      int n;
+      cin>>n;
+      vector <int> v(n);
+      vector <int> w(n);
+      vector <int> c;
+      for(int i=0;i<n;i++){
+          ll z;cin>>z;
+          double x = z;
+          double y = abs(x/(x-1));
+          if(x==y){
+              if(x==2){
+                  r1++;
+                  x=3;
+                  y=abs(x/(x-1));
+                  pair=pair+r1;
+              }
+              if(x==0){
+                  r2++;
+                  x=3;
+                  y=abs(x/(x-1));
+                  pair=pair+r2;
+              }
+           }
+          v[i]=x;
+        //   cout<<y;
+          w[i]=y;
+      }
+      vector<int> a(v.size() + w.size()); 
+      vector<int>::iterator it, st; 
+      it = set_intersection(v.begin(), v.end(), w.begin(), w.end(), a.begin()); 
+      for(st = a.begin(); st != it; ++st){
+          pair++;
+      }
+    // cout << *st << ", ";
+      cout<<pair<<""<<endl;
+  }
+  return 0;
+}
+
+
+--------------------last----------------code------------------------ever-----------------------------
+7-12-2019
+// C++ program to convert binary to decimal 
+#include <iostream> 
+using namespace std; 
+
+// Function to convert binary to decimal 
+int binaryToDecimal(int n) 
+{ 
+	int num = n; 
+	int dec_value = 0; 
+
+	// Initializing base value to 1, i.e 2^0 
+	int base = 1; 
+
+	int temp = num; 
+	while (temp) { 
+		int last_digit = temp % 10; 
+		temp = temp / 10; 
+
+		dec_value += last_digit * base; 
+
+		base = base * 2; 
+	} 
+
+	return dec_value; 
+} 
+
+// Driver program to test above function 
+int main() 
+{ 
+	int num = 10101001; 
+
+	cout << binaryToDecimal(num) << endl; 
+} 
+
+-------fAILS FOR INPUT GRGEATER THAN 20 DIGIT --------S0-----USE-----THIS-----CODE-----
+
+// C++ program to convert binary to decimal 
+// when input is represented as binary string. 
+#include <iostream> 
+#include <string> 
+using namespace std; 
+
+// Function to convert binary to decimal 
+int binaryToDecimal(string n) 
+{ 
+	string num = n; 
+	int dec_value = 0; 
+
+	// Initializing base value to 1, i.e 2^0 
+	int base = 1; 
+
+	int len = num.length(); 
+	for (int i = len - 1; i >= 0; i--) { 
+		if (num[i] == '1') 
+			dec_value += base; 
+		base = base * 2; 
+	} 
+
+	return dec_value; 
+} 
+
+// Driver program to test above function 
+int main() 
+{ 
+	string num = "10101001"; 
+	cout << binaryToDecimal(num) << endl; 
+} 
+This can also be done by Integer.parseInt() function in Java.
+public class GFG { 
+	public static void main(String args[]) 
+	{ 
+		String binaryNumber = "1001"; 
+		System.out.println(Integer.parseInt(binaryNumber, 2)); 
+	} 
+} 
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+// C++ program to add two binary strings 
+#include<bits/stdc++.h> 
+using namespace std; 
+
+// This function adds two binary strings and return 
+// result as a third string 
+string addBinary(string a, string b) 
+{ 
+	string result = ""; // Initialize result 
+	int s = 0;		 // Initialize digit sum 
+
+	// Traverse both strings starting from last 
+	// characters 
+	int i = a.size() - 1, j = b.size() - 1; 
+	while (i >= 0 || j >= 0 || s == 1) 
+	{ 
+		// Comput sum of last digits and carry 
+		s += ((i >= 0)? a[i] - '0': 0); 
+		s += ((j >= 0)? b[j] - '0': 0); 
+
+		// If current digit sum is 1 or 3, add 1 to result 
+		result = char(s % 2 + '0') + result; 
+
+		// Compute carry 
+		s /= 2; 
+
+		// Move to next digits 
+		i--; j--; 
+	} 
+	return result; 
+} 
+
+// Driver program 
+int main() 
+{ 
+	string a = "1101", b="100"; 
+	cout << addBinary(a, b) << endl; 
+	return 0; 
+} 
+
+-------------------------------// Function to calculate xor //------------------------------- 
+long computeXOR(const int n) 
+{ 
+    // Modulus operator are expensive on most of the  
+    // computers. n & 3 will be equivalent to n % 4.    
+  
+    switch(n & 3) // n % 4  
+    { 
+    case 0: return n;     // if n is multiple of 4 
+    case 1: return 1;     // If n % 4 gives remainder 1   
+    case 2: return n + 1; // If n % 4 gives remainder 2     
+    case 3: return 0;     // If n % 4 gives remainder 3   
+    } 
+} 
+
+----------------------------------------------------Next Greater Element(gfg-using stack)-------
+go and find out meaning of stack <int> st.top().second and st.top().first
+----------------------------------------------------large number factorial----------------------
+// C++ program to compute factorial of big numbers 
+#include<iostream> 
+using namespace std; 
+// Maximum number of digits in output 
+#define MAX 500 
+int multiply(int x, int res[], int res_size); 
+// This function finds factorial of large numbers 
+// and prints them 
+void factorial(int n) 
+{ 
+	int res[MAX]; 
+	// Initialize result 
+	res[0] = 1; 
+	int res_size = 1; 
+
+	// Apply simple factorial formula n! = 1 * 2 * 3 * 4...*n 
+	for (int x=2; x<=n; x++) 
+		res_size = multiply(x, res, res_size); 
+
+	cout << "Factorial of given number is \n"; 
+	for (int i=res_size-1; i>=0; i--) 
+		cout << res[i]; 
+} 
+// This function multiplies x with the number represented by res[]. res_size is size of res[] or number of digits in the 
+// number represented by res[]. This function uses simple school mathematics for multiplication. 
+// This function may value of res_size and returns the new value of res_size 
+int multiply(int x, int res[], int res_size) 
+{ 
+	int carry = 0; // Initialize carry 
+	// One by one multiply n with individual digits of res[] 
+	for (int i=0; i<res_size; i++) 
+	{ 
+		int prod = res[i] * x + carry; 
+		// Store last digit of 'prod' in res[] 
+		res[i] = prod % 10; 
+		// Put rest in carry 
+		carry = prod/10;	 
+	} 
+	while (carry) 	// Put carry in res and increase result size 
+	{ 
+		res[res_size] = carry%10; 
+		carry = carry/10; 
+		res_size++; 
+	} 
+	return res_size; 
+} 
+int main() 
+{ 	// Driver program 
+	factorial(100); 
+	return 0; 
+} 
+-------------------------------------------------gcd---------------------------------
+// C++ program to find GCD of two numbers 
+#include <iostream> 
+using namespace std; 
+// Recursive function to return gcd of a and b 
+int gcd(int a, int b) 
+{ 
+	if (b == 0) 
+		return a; 
+	return gcd(b, a % b); 
+	
+} 
+
+// Driver program to test above function 
+int main() 
+{ 
+	int a = 98, b = 56; 
+	cout<<"GCD of "<<a<<" and "<<b<<" is "<<gcd(a, b); 
+	return 0; 
+} 
+

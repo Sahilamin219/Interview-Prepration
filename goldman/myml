@@ -1,0 +1,29 @@
+In machine learning, we use the term hyperparameter to distinguish from standard model parameters. So, it is worth to first understand what those are.
+
+A machine learning model is the definition of a mathematical formula with a number of parameters that need to be learned from the data. That is the crux of machine learning: fitting a model to the data. This is done through a process known as model training. In other words, by training a model with existing data, we are able to fit the model parameters.
+
+However, there is another kind of parameters that cannot be directly learned from the regular training process. These parameters express “higher-level” properties of the model such as its complexity or how fast it should learn. They are called hyperparameters. Hyperparameters are usually fixed before the actual training process begins.
+
+So, how are hyperparameters decided? That is probably beyond the scope of this question, but suffice to say that, broadly speaking, this is done by setting different values for those hyperparameters, training different models, and deciding which ones work best by testing them.
+
+So, to summarize. Hyperparameters:
+
+    Define higher level concepts about the model such as complexity, or capacity to learn.
+    Cannot be learned directly from the data in the standard model training process and need to be predefined.
+    Can be decided by setting different values, training different models, and choosing the values that test better
+
+Some examples of hyperparameters:
+
+    Number of leaves or depth of a tree
+    Number of latent factors in a matrix factorization
+    Learning rate (in many models)
+    Number of hidden layers in a deep neural network
+    Number of clusters in a k-means clustering
+
+
+//this line will add a column of 1s in the matrixe of X in the end
+X=np.append(arr=X, values=np.ones((50,1)).astype(int), axis=1)
+//to add them in the begning
+X=np.append(arr=np.ones((50,1)).astype(int), values=X, axis=1)
+
+

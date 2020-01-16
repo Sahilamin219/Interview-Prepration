@@ -1,0 +1,13 @@
+SIGABRT is commonly used by libc and other libraries to abort the progamm in case of critical errors. For example, glibc sends an SIGABRT in case of a detected double-free or other heap corruptions.
+
+Also, most “assert” implementaions make use of SIGABRT in case of a failed assert.
+
+Furthermore, SIGABRT can be send from any other process like any other signal. Of course, the sending process needs to run as same user or root.
+
+It usually happens when there is a problem with memory allocation.
+
+It happened to me when I my program was trying to allocate an array with negative size.
+
+abort() sends the calling process the SIGABRT signal, this is how abort() basically works.
+
+abort() is usually called by library functions which detect an internal error or some seriously broken constraint. For example malloc() will call abort() if its interal structures are damaged by a heap overflow.
