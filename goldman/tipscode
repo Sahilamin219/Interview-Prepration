@@ -96,3 +96,21 @@ Range contains: 10 30 30 10 10
 Original Vector : 10 20 30 30 20 10 10 20
 Vector contains : 30 20 10 10 20
 
+
+
+
+Comparison to qsort and sort()
+1. Implementation details:
+As the name suggests, qsort function uses QuickSort algorithm to sort the given array, although the C standard does not require it to implement quicksort.
+
+C++ sort function uses introsort which is a hybrid algorithm. Different implementations use different algorithms. The GNU Standard C++ library, for example, uses a 3-part hybrid sorting algorithm: introsort is performed first (introsort itself being a hybrid of quicksort and heap sort) followed by an insertion sort on the result.
+
+2. Complexity :
+The C standard doesn’t talk about its complexity of qsort. The new C++11 standard requires that the complexity of sort to be O(Nlog(N)) in the worst case. Previous versions of C++ such as C++03 allow possible worst case scenario of O(N^2). Only average complexity was required to be O(N log N).
+
+3. Running time:
+STL’s sort ran faster than C’s qsort, because C++’s templates generate optimized code for a particular data type and a particular comparison function.
+
+STL’s sort runs 20% to 50% faster than the hand-coded quicksort and 250% to 1000% faster than the C qsort library function. C might be the fastest language but qsort is very slow.
+
+When we tried to sort one million integers on C++14, Time taken by C qsort() was 0.247883 sec and time taken by C++ sort() was only 0.086125 sec
