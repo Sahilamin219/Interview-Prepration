@@ -1,0 +1,24 @@
+https://math.stackexchange.com/questions/432181/are-there-any-real-life-applications-of-the-greatest-common-divisor-of-two-or-mo
+
+https://math.stackexchange.com/questions/218921/addition-or-subtraction-in-gcd-and-lcm
+
+515-B Drazil and His Happy Friends
+
+You may notice that Drazil invites his friends periodically, and the period of invitation patterns is at most n * m (because there are only n * m possible pairs of boys and girls).
+
+So if no one changes from unhappy to happy in consecutive n * m days, there won't be any changes anymore since then.
+
+We can simulate the process of having dinner until there are no status changes in consecutive n * m days.
+
+Because there are only n+m people, it's easy to prove the simulation requires O((n + m) * n * m) days.
+
+But in fact, the simulation takes only O( n * m) days.(More accurately, the bound is (min(n, m) + 1) * (max(n, m) - 1) )
+
+What happens? You can do some experiments by yourself. =) (you can suppose that only one person is happy in the beginning.)
+
+In fact, this problem can be solved in O(n + m).
+
+Let g be the greatest common divisor of n and m. If the i-th person is happy, then all people with number x satisfying will become happy some day because of this person.
+
+So for each 0 ≤ i ≤ g - 1, we only need to check if there exists at least one person whose number mod g is i and is happy.
+If it exists for all i, the answer is 'Yes', otherwise the answer is 'No'.
