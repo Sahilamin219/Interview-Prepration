@@ -40,7 +40,8 @@ in arrays if you want to use it is like as follows
 
         return 0;
       }
-
+## for stable sort 
+Just use **stable_sort(v.begin(), v.end()) ;** It uses merge sort and if extra space is not available time complexity changes to n(log(n*n)) ;
 ## For using merge between two arrays 
 Its does not sort the function ..it just merge two arrays, and using coustom sort1 function.. its keeps increaing index of one array until condition is satisfied otherwise another array's index is incremented .
 
