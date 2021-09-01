@@ -60,3 +60,7 @@ Its does not sort the function ..it just merge two arrays, and using coustom sor
         vector<int> a={-2, 3, -1, 13, -5, 6}, b(2*piles.size());
         merge(piles.begin(),piles.end(), a.begin(), a.end(), b.begin(), sort1());
     }
+
+# OS 
+
+fork() will create a new child process identical to the parent. So everything you run in the code after that will be run by both processes — very useful if you have for instance a server, and you want to handle multiple requests.
