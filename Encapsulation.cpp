@@ -7,7 +7,8 @@ class Student{
         int a=20;
     public:
         Student();
-        void show();
+        void show(); // using abstraction here 
+
         void get(){
             cout<<a<<" <- this is from get method\n";
         }
@@ -15,6 +16,7 @@ class Student{
 Student::Student(){
     cout<<"Constructor Calling Completed !\n";
 }
+
 void Student::show(){
     get();
 }
