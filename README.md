@@ -203,3 +203,76 @@ Thoughts:
 
 132. Palindrome Partitioning II -> DP Approach 
 133. Unique permutation , only one time swap, sort it and pass for same element
+
+312. Burst Balloons
+Hard
+
+You are given n balloons, indexed from 0 to n - 1. Each balloon is painted with a number on it represented by an array nums. You are asked to burst all the balloons.
+
+If you burst the ith balloon, you will get nums[i - 1] * nums[i] * nums[i + 1] coins. If i - 1 or i + 1 goes out of bounds of the array, then treat it as if there is a balloon with a 1 painted on it.
+
+Return the maximum coins you can collect by bursting the balloons wisely.
+Idea:
+We then think can we apply the divide and conquer technique? After all there seems to be many self similar sub problems from the previous analysis.
+
+Well, the nature way to divide the problem is burst one balloon and separate the balloons into 2 sub sections one on the left and one one the right. However, in this problem the left and right become adjacent and have effects on the maxCoins in the future.
+
+Then another interesting idea come up. Which is quite often seen in dp problem analysis. That is reverse thinking. Like I said the coins you get for a balloon does not depend on the balloons already burst. Therefore
+instead of divide the problem by the first balloon to burst, we divide the problem by the last balloon to burst.
+
+<table border="0">
+ <tr>
+    <td><b style="font-size:30px">Tabulation</b></td>
+    <td><b style="font-size:30px">Memoization</b></td>
+ </tr>
+ <tr>
+<td>
+                
+            class Solution {
+                  public:
+                      int maxCoins(vector<int>& nums) {
+                          int n=nums.size()+2;
+                          vector<vector<int>> dp(n, vector<int>(n,0));
+                          nums.insert(nums.begin(), 1);
+                          nums.push_back(1);
+                          for(int k=2;k<n;k++){
+                              for(int left=0;left<n-k;left++){
+                                  int right=left+k;
+                                  for(int i=left+1;i<right;i++){
+                                      dp[left][right] = max(dp[left][right], 
+                                                           nums[left]*nums[i]*nums[right] + dp[left][i] + dp[i][right]);
+                                  }
+                              }
+                          }
+                          return dp[0][n-1];
+                      }
+                  };
+                                                                 
+</td>
+      <td>
+                  
+                  public int maxCoins(int[] iNums) {
+                      int[] nums = new int[iNums.length + 2];
+                      int n = 1;
+                      for (int x : iNums) if (x > 0) nums[n++] = x;
+                      nums[0] = nums[n++] = 1;
+
+
+                      int[][] memo = new int[n][n];
+                      return burst(memo, nums, 0, n - 1);
+                  }
+
+                  public int burst(int[][] memo, int[] nums, int left, int right) {
+                      if (left + 1 == right) return 0;
+                      if (memo[left][right] > 0) return memo[left][right];
+                      int ans = 0;
+                      for (int i = left + 1; i < right; ++i)
+                          ans = Math.max(ans, nums[left] * nums[i] * nums[right] 
+                          + burst(memo, nums, left, i) + burst(memo, nums, i, right));
+                      memo[left][right] = ans;
+                      return ans;
+                  }
+                                                       
+</td>
+</tr>
+</table>
