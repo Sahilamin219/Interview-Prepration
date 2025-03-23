@@ -1,7 +1,0 @@
-
-Example Event Scenario:
-Order Placement: When a user places an order, an "OrderCreated" event is published.
-Inventory Service: The inventory service listens for "OrderCreated" events and updates the inventory.
-Shipping Service: The shipping service listens for "OrderCreated" events and initiates the shipping process.
-Example CallBack scenario:
-A payment gateway, after processing a payment, calls back the e-commerce system with the payment status.
