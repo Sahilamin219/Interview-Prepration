@@ -346,3 +346,42 @@ instead of divide the problem by the first balloon to burst, we divide the probl
                         return arr.at(random_index);
                   }	
             };
+
+## Garbage Collector
+
+### Reference Counting:
+Python tracks how many references (aliases) an object has. When an object's reference count reaches zero, it's immediately deallocated, freeing up memory. 
+
+### Mark and Sweep Algorithm:
+Phase 1: Mark Phase 
+
+When an object is created, its mark bit is set to 0(false). In the Mark phase, we set the marked bit for all the reachable objects (or the objects which a user can refer to) to 1(true). Now to perform this operation we simply need to do a graph traversal, a depth-first search approach would work for us. Here we can consider every object as a node and then all the nodes (objects) that are reachable from this node (object) are visited and it goes on till we have visited all the reachable nodes.
+
+The root is a variable that refers to an object and is directly accessible by a local variable. We will assume that we have one root only.
+We can access the mark bit for an object by ‘markedBit(obj)’.
+Algorithm: Mark phase 
+
+                  Mark(root)
+                  If markedBit(root) = false then
+                                       markedBit(root) = true
+                                                         For each v referenced by root
+                                                         Mark(v)
+
+Note: If we have more than one root, then we simply have to call Mark() for all the root variables. 
+
+
+Phase 2: Sweep Phase 
+
+As the name suggests it “sweeps” the unreachable objects i.e. it clears the heap memory for all the unreachable objects. All those objects whose marked value is set to false are cleared from the heap memory, for all other objects (reachable objects) the marked bit is set to true. 
+Now the mark value for all the reachable objects is set to false since we will run the algorithm (if required) and again we will go through the mark phase to mark all the reachable objects. 
+
+Algorithm: Sweep Phase 
+
+                  Sweep()
+                  For each object p in heap
+                  If markedBit(p) = true then
+                                    markedBit(p) = false
+                                                   else
+                                                       heap.release(p)
+                                                       
+The mark-and-sweep algorithm is called a tracing garbage collector because it traces out the entire collection of objects that are directly or indirectly accessible by the program. 
