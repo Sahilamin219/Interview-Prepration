@@ -385,3 +385,20 @@ Algorithm: Sweep Phase
                                                        heap.release(p)
                                                        
 The mark-and-sweep algorithm is called a tracing garbage collector because it traces out the entire collection of objects that are directly or indirectly accessible by the program. 
+
+
+► SOLID Principles:
+
+1. Single Responsibility: Each class should have only one job.
+2. Open/Closed: Classes should be extendable without being modified.
+3. Liskov Substitution: Subclasses should be replaceable with their parent classes.
+4. Interface Segregation: Prefer small, specific interfaces over general ones.
+5. Dependency Inversion: Rely on abstractions rather than specific implementations.
+
+
+►ACID Properties:
+
+1. Atomicity: Transactions are indivisible units; they either fully succeed or completely fail.
+2. Consistency: Each transaction must maintain the database's consistency.
+3. Isolation: Transactions should execute independently without affecting each other.
+4. Durability: Once a transaction is finalized, it must persist even through system failures.
