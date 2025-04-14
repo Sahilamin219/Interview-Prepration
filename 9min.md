@@ -1,5 +1,5 @@
 
-RabbitMQ in 3 mins -
+### RabbitMQ in 3 mins -
 
 RabbitMQ is a popular message broker tool that transfers data between services. It accepts messages from producers and delivers them to consumers. The publish-subscribe mechanism enables an application to announce events to multiple consumers asynchronously.
 
@@ -12,7 +12,7 @@ Two, senders and receivers are now tightly coupled.
 Three, in the case of a microservice architecture, where there are numerous services, the number of these calls can become really large.
 
 
-How RabbitMQ solves the problem -
+* How RabbitMQ solves the problem -
 
 RabbitMQ solves this problem by providing an asynchronous publish-subscribe communication system. In such a system, rather than allowing two applications/services to communicate with each other directly, an additional component such as a queue is introduced as an intermediary. This additional component is known as the Message Broker. Services can read/write messages from/to this broker per their availability. This kind of communication system has many benefits -
 
@@ -25,12 +25,12 @@ However, the system is now immensely dependent on the Message Broker. If the Mes
 
 
 
-NGINX in 3 mins -
+### NGINX in 3 mins -
 
 NGINX has become a popular and powerful web tool in a short period of time. Using it as a web server, we can make sure that our page load time is reduced as it is extremely fast. It can handle a large number of connections without compromising performance as it still maintains its speed. Initially brought in as a powerful web server, it has evolved and now also serves as a reverse proxy, load balancer, cache server, and a lot more. NGINX is easily highly scalable, which ensures that its service grows along with its clients’ traffic.
 What makes NGINX a popular and powerful tool is its non-threaded and event-driven architecture. This ensures the processing of multiple requests at the same time.
 
-Event-driven architecture?
+* Event-driven architecture?
 This kind of asynchronous architecture is very different than the traditional process-driven architecture. Earlier, each client request was handled as an individual thread, which became complicated to handle the increasing number of connections. This leads to a delayed response, and the web server slows down. Switching between different threads requires CPU utilization along with extended memory usage and CPU time, which in turn impacts the performance of the website.
 
 To avoid such kinds of complications Nginx uses the advanced event-based architecture. It uses event notification heavily and that leads to putting the specific tasks to specific processors. Because of this, processors run efficiently. It does not allocate a process to a particular connection, but it creates a process pool that can be easily shared among multiple connections within the network. Whenever a request is made, a resource will be allocated to the process, resulting in better resource utilization that can easily handle extensive connections. There are a limited number of single-thread processors called workers. Each worker can process 1000s of connections. Nginx does not spawn a new process or thread for every connection.
@@ -46,7 +46,7 @@ It is also one of the very few tools that can be upgraded without any downtime. 
 
 
 
-Apache Kafka in 3 mins -
+### Apache Kafka in 3 mins -
 
 Kafka is the most popular and commonly used messaging queue. It is a distributed event streaming platform that allows multiple services to communicate with each other by sending and receiving data using its queue-based architecture.
 
@@ -75,3 +75,29 @@ Leader - For any partition, among all replications, one replication is chosen as
 
 Zookeper - Kafka can not run without Zookeper. You can imagine this as a central entity that takes care of the brokers, topics, and partition assignment, leader election, basically all the metadata about the Kafka cluster.
 
+
+# Saga pattern
+This pattern can be used to deal with distributed transactions inside a microservice ecosystem. There are other well-known techniques like 2PC. While 2PC considered as single (distributed) commit, SAGA is a sequence of separate commits.
+
+## Happy path
+
+Let's suppose we have 2 microservices which are participating in a distributed transaction
+
+Microservice #1 executes a local transaction and puts an entity into a creating state.
+Microservice #1 publishes an event about it which is consumed by Microservice #2
+Microservice #2 executes another local transaction and publishes an event about it
+Microservice #1 is interested about that event which was published by Microservice #2
+Microservice #1 process it by moving the 1st step's entity into a created state
+
+## Unhappy path
+
+Microservice #1 executes a local transaction and puts an entity into a creating state
+Microservice #1 publishes an event about it which is consumed by Microservice #2
+Microservice #2 executes another local transaction but it fails. It publishes a failure event
+Microservice #1 is interested about that event which was published by Microservice #2
+Microservice #1 process it by executing a compensation action by moving the 1st step's entity into a failedCreating state
+
+### Choreography vs Orchestration
+In the previous example Microservice #1 and Microservice #2 knew what would be the next action after its local change. In other words they knew who should be informed about the transaction change. This type of coordination is called choreography.
+
+In case of orchestration there is a centralized place/subsystem which coordinates the participants. In other words each microservice should know only about the orchestrator. The orchestrator knows who should do what when a given event happens.
